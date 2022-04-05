@@ -1,0 +1,1011 @@
+/*
+*	@author Alan David
+*/
+
+@import url(../fonts/stylesheet.css);
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, input, textarea, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+	list-style: none;
+	/*font-family: 'ABC Arizona Serif', sans-serif;*/
+	font-family: Arial, sans-serif;
+	font-weight: normal;
+	color: #002445;
+	box-sizing: border-box;
+}
+
+strong, b { 
+	font-weight: bold;
+	color: inherit;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+/*
+AZUL #002445
+AZUL CLARO #BDDEE5
+VERMELHO #FF595A
+*/
+
+/* GENERAL
+******************************************************/
+html, body {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+.mobile {
+	display: none;
+}
+
+header {
+	background: url(../img/header.png) no-repeat 60% 20px;
+	width: 100%;
+	padding: 30px 8%;
+	margin-bottom: 70px;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	z-index: 2;
+}
+	nav {
+		background: transparent;
+		width: auto;
+		display: flex;
+		box-shadow: none;
+	}
+		nav > a {
+			margin-right: 50px;
+			font-size: 0.9em;
+			text-transform: uppercase;
+			color: #002445;
+		}
+		nav > a.mark,
+		nav > a:hover {
+			font-weight: bold;
+			margin-left: -1px;
+		}
+		nav .submenu {
+		    background: #002445;
+		    padding: 20px 40px 20px 8%;
+		    position: absolute;
+			top: 60px;
+		    left: -50%;
+		    transition: all 0.7s ease;
+		}
+		nav .submenu.active,
+		nav .submenu.mark {
+			left: 0;
+		}
+			nav .submenu a {
+				display: block;
+				font-size: 0.9em;
+				color: #fff;
+				text-transform: uppercase;
+				margin: 0 0 10px 100px;
+			}
+			nav .submenu a.mark,
+			nav .submenu a:hover {
+				font-weight: bold;
+				margin-left: 99px;
+			}
+
+footer {
+	background: #FF595A;
+	width: 100%;
+	padding: 30px 8%;
+}
+	footer * {
+		color: #fff;
+		text-align: center;
+	}
+
+	footer h5 {
+		font-family: 'ABC Arizona Serif', serif;
+		font-size: 2.5em;
+		text-align: center;
+		margin: 50px 0;
+	}
+
+	footer .btn {
+		width: 320px;
+		padding: 25px 20px;
+		font-size: 1.5em;
+		font-weight: normal;
+		text-align: center;
+		text-transform: none;
+		text-decoration: none;
+		border-radius: 60px;
+		color: #002445;
+		margin: 0 auto;
+		display: block;
+	}
+	footer > a,
+	footer p {
+		width: 320px;
+		text-align: center;
+		font-size: 1.3em;
+		display: block;
+		margin: 40px auto;
+	}
+	footer a {
+		text-decoration: underline;
+	}
+	footer p {
+		width: 100%;
+	}
+
+	footer div {
+		width: 220px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+	}
+		footer div a {
+			font-size: 1.3em;
+		}
+
+
+
+	header img,
+	footer img {
+		margin: 0;
+	}
+
+
+section {
+	width: 100%;
+	padding: 60px 8%;
+	position: relative;
+	z-index: 1;
+}
+	section * {
+		z-index: 0;
+	}
+	section img {
+		max-width: 100%;
+	}
+
+.LR {
+	display: flex;
+	justify-content: space-between;
+}
+	.LR > div {
+		width: 47%;
+		position: relative;
+	}
+		.LR > div img {
+			max-width: 100%;
+		}
+
+
+h2 {
+	font-family: 'ABC Arizona Serif', serif;
+	font-size: 3em;
+	text-transform: uppercase;
+}
+
+h3 {
+	font-family: 'ABC Arizona Serif', serif;
+	font-size: 4em;
+	line-height: 1em;
+    margin-bottom: 10px;
+}
+
+
+p {
+	font-size: 1.2em;
+	line-height: 1.5em;
+}
+
+.btn {
+	background: #BDDEE5 !important;
+	height: auto;
+	padding: 10px 15px;
+	font-size: 1em;
+	line-height: 1em;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 30px;
+	display: inline-block;
+    margin: 20px auto 20px 0;
+    letter-spacing: inherit;
+    box-shadow: none !important;
+}
+	.btn.btnRed {
+		background: #FF595A !important;
+		color: #fff;
+	}
+	.btn span {
+		font: inherit;
+	}
+
+
+/******************************************************/
+#cover {
+	padding-top: 0;
+}
+	#cover img {
+		max-width: 65vw;
+		margin: 0 auto 0 0;
+	}
+	#cover div {
+		width: 84%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: auto;
+	}
+		#cover h1 {
+			font-family: 'ABC Arizona Serif', serif;
+			font-size: 9em;
+			font-weight: lighter;
+    		line-height: 0.9em;
+    		text-align: right;
+    		margin: -15px auto 0 0;
+		}
+
+	.btnForm {
+		background: url(../img/icon_chat.png) no-repeat 50% 50%;
+		width: 60px;
+		height: 60px;
+		position: absolute;
+		right: 1%;
+		bottom: 150px;
+		text-indent: -999em;
+	}
+
+
+	/* FORM */
+	#fale, #menu {
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 99;
+		color: #002445;
+		display: none;
+	}
+		.closeFale, .closeMenu {
+			padding: 10px 20px;
+			font-size: 26px;
+			color: #002445;
+			position: absolute;
+			top: 4vh;
+			right: 5%;
+			z-index: 3;
+		}
+		.bgFale, .bgMenu {
+			background: #000;
+			opacity: 0;
+			width: 100vw;
+			height: 100vh;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: 0.5s all ease;
+		}
+		.active .bgFale,
+		.active .bgMenu {
+			opacity: 0.7;
+		}
+		.contentFale,
+		.contentMenu {
+			background: #BDDEE5;
+			width: 40vw;
+			height: 100vh;
+			position: absolute;
+			top: 0;
+			right: -40vw;
+			padding: 10vh 6% 10vh 5%;
+			transition: 0.5s ease;
+			opacity:  0;
+		}
+		.active .contentFale,
+		.active .contentMenu {
+			right: 0;
+			opacity: 1;
+		}
+		.contentFale form {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+		}
+			#fale h5 {
+				color: #002445;
+				font-size: 34px;
+				padding-bottom: 0;
+			}
+			#fale p {
+				width: 100%;
+				color: #002445;
+				font-size: 1rem;
+			}
+			#fale span {
+				color: #002445;
+				margin-right: 30px;
+			}
+			#fale .check {
+				margin-top: 0;
+			}
+			#fale .input-field{
+				margin: 0;
+			}
+				#fale input,
+				#fale textarea {
+					color: #002445;
+					border-color: #002445;
+					height: 2rem;
+					padding: 1rem 0 0;
+				}
+				#fale .btn {
+					background: #002445 !important;
+					min-width: 0;
+					width: 160px;
+					color: #fff;
+					padding: 0;
+				}
+				.input-field>label:not(.label-icon).active {
+					    transform-origin: 0 60px !important;
+				}
+
+	/* label color */
+	#fale .input-field label {
+	 color: #002445;
+	}
+	/* label focus color */
+	#fale .input-field input:focus + label {
+	 color: #002445;
+	}
+	/* label underline focus color */
+	#fale .input-field input:focus,
+	#fale .input-field textarea:focus {
+	 border-bottom: 1px solid #002445;
+	 box-shadow: 0 1px 0 0 #002445;
+	}
+	/* valid color */
+	#fale .input-field input.valid {
+	 border-bottom: 1px solid #002445;
+	 box-shadow: 0 1px 0 0 #002445;
+	}
+	/* invalid color */
+	#fale .input-field input.invalid {
+	 border-bottom: 1px solid #002445;
+	 box-shadow: 0 1px 0 0 #002445;
+	}
+	/* icon prefix focus color */
+	#fale .input-field .prefix.active {
+	 color: #002445;
+	}
+
+	[type="checkbox"]+span:not(.lever):before, 
+	[type="checkbox"]:not(.filled-in)+span:not(.lever):after {
+		background: #002445;
+		border-color: #002445;
+		border-radius: 6px;
+	}
+
+	[type="checkbox"]:checked+span:not(.lever):before {
+		background: none;
+		border-right-color: #002445;
+		border-bottom-color: #002445;
+		border-radius: 0;
+	} 
+
+	/* Cor de fundo do autocomplete */
+	input:-webkit-autofill {
+	    -webkit-box-shadow: 0 0 0 30px #014638 inset !important;
+	}
+
+	/* Cor do texto do autocomplete */
+	input:-webkit-autofill {
+	    -webkit-text-fill-color: white !important;
+	}
+
+	#fale .input-field input:focus, 
+	#fale .input-field textarea:focus {
+		box-shadow:  none;
+	}
+
+	#fale .input-field label.error {
+		display: none !important;
+	}
+	#fale input.error {
+		border-color: #f00 !important;
+	}
+
+
+	#fale div.loading {
+		background: url(../img/loading.gif) no-repeat 50% 50% rgba(1,70,56,0.4);
+		background-size: 100px;
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+	    left: 0;
+	    z-index: 1;
+		position: absolute;
+		display: none;
+	}
+
+	#fale.loading div.loading {
+		display: block;
+	}
+
+
+#roteiros {
+	background: #002445;
+	margin-top: -150px;
+	padding-top: 200px;
+	padding-bottom: 350px;
+	z-index: 0;
+}
+	#roteiros * {
+		color: #fff;
+		text-align: center;
+	}
+	
+	#roteiros div {
+		height: 600px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: relative;
+	}
+		#roteiros span {
+			font-family: 'ABC Arizona Serif', serif;
+			font-size: 30em;
+			font-weight: lighter;
+			color: #FF595A;
+			z-index: 0;
+		}
+			#roteiros b {
+				font-family: 'ABC Arizona Serif', serif;
+				font-size: 90px;
+				font-weight: lighter;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin: -60px 0 0 -150px;
+				z-index: 1;
+			}
+
+
+
+#prazer {
+	top: -200px;
+    overflow: auto;
+}
+	#prazer .LR > div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+		#prazer .LR .txt {
+			max-width: 80%;
+			padding: 60px 0 0 100px;
+			margin: auto 0;
+		}
+
+	#prazer > img {
+		max-width: 70vw;
+		margin-top: -40px;
+		float: right;
+		position: relative;
+		z-index: 3;
+	}
+
+
+#viagens {
+	top: -200px;
+}
+	#viagens .txt {
+		margin: 60px 0;
+	}
+		#viagens h3 {
+			font-size: 3.7em;
+			text-transform: uppercase;
+			text-indent: -80px;
+			margin: 0 0 20px 80px;
+		}
+			#viagens h3 span {
+				font: inherit;
+				display: inline-block;
+    			text-align: right;
+			}
+		#viagens p {
+			margin-left: 120px;
+		}
+		#viagens .btn {
+			margin-left: 120px;
+		}
+
+
+#destino {
+	background: url(../img/img_destino.jpg) no-repeat 50% 50%;
+	background-size: cover;
+	height: 100vh;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: -200px;
+}
+	#destino h4 {
+		font-family: 'ABC Arizona Serif', sans-serif;
+		font-size: 3em;
+		color: #fff;
+		text-transform: uppercase;
+	}
+
+
+
+#parceiros{}
+	#parceiros h4 {
+		font-family: 'ABC Arizona Serif', sans-serif;
+		font-size: 2.4em;
+		text-align: center;
+		color: #002445;
+		margin: 40px 0;
+	}
+
+	.slick {
+		margin-bottom: 50px;
+	}
+		.slick-prev, .slick-next {
+			width: 40px;
+			height: 40px;
+			z-index: 5;
+		}
+		.slick-prev {
+			left: -45px;
+		}
+			.slick-prev:before {
+				content: url(../img/arrowL.png);
+			}
+		.slick-next {
+			right: -45px;
+		}
+			.slick-next:before {
+				content: url(../img/arrowR.png);
+			}
+
+		.slick li {
+			height: 110px;
+			display: flex !important;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+
+
+/* SOBRE
+*************/
+#coverSobre {
+	/*background: url(../img/img_sobre.jpg) no-repeat 0 50%;*/
+	padding: 200px 8%;
+	margin-top: -200px;
+}
+	#coverSobre:before {
+		content: ' ';
+	    display: block;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	    z-index: -1;
+	    opacity: 0.35;
+	    background-image: url(../img/img_sobre.jpg);
+	    background-repeat: no-repeat;
+	    background-position: 50% 0;
+	    background-size: cover;
+	}
+	#coverSobre p {
+		max-width: 55vw;
+		font-size: 1.3em;
+		line-height: 1.5em;
+		text-align: justify;
+	}
+
+	#coverSobre .btnForm {
+		bottom: 100px;
+	}
+
+
+/* VIAGENS
+*************/
+.pgViagens {}
+	.pgViagens header {
+		padding-right: 4%;
+	}
+
+	.pgViagens section {
+		padding: 60px 4% 100px;
+	}
+
+	.pgViagens #cover img {
+	    max-width: 70%;
+	    margin: 0 0 0 auto;
+	}
+
+	.pgViagens .btnForm {
+	    right: 3%;
+		bottom: 20px;
+	}
+
+	.pgViagens #cover div {
+		padding-top: 80px;
+	}
+		.pgViagens h2 {
+			font-size: 5em;
+			margin-bottom: 40px;
+			line-height: 1em;
+		}
+		.pgViagens p {
+			max-width: 25%;
+			font-size: 1em;
+			line-height: 1.4em;
+			text-align: justify;
+
+		}
+
+
+
+/*  MOBILE
+******************************************************************/
+@media screen and (max-width: 900px) {
+
+
+.desk {
+	display: none;
+}
+.mobile {
+	display: block;
+}
+
+	section {
+		margin-top: 0 !important;
+		padding: 60px 4%;
+	}
+
+
+	.LR {
+		flex-direction: column;
+	}
+	.LR > div {
+		width: 100%;
+		position: relative;
+	}
+
+	h2 {
+		font-size: 2em;
+	}
+
+	h3 {
+		font-size: 3em;
+	}
+
+
+	p {
+		font-size: 1em;
+		line-height: 1.5em;
+	}
+
+.contentFale {
+	width: 100vw;
+}
+	#fale p {
+		text-align: left;
+	}
+
+header {
+	background-position: 50% 20px;
+	margin-bottom: 0;
+	justify-content: flex-end;
+}
+
+	.btnMenu {
+		background: url(../img/menu.png) no-repeat 50% 50%;
+		width: 40px;
+		height: 40px;
+		display: block;
+	}
+	.contentMenu {
+		background: url(../img/headerb.png) no-repeat 50% 30px #002445;
+		width: 100vw;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+
+	}
+		.closeMenu {
+			color: #fff;
+		}
+		.navMob {
+			display: flex;
+			flex-direction: column;
+		}
+			.navMob a  {
+				font-size: 1.5em;
+				text-align: center;
+				color: #fff;
+				margin: 40px auto 20px;
+			}
+		#menu .social {
+			min-width: 100px;
+			margin: 0 auto !important;
+		} 
+		#menu .social a {
+			background: no-repeat 50% 50%;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			text-indent: -9999em;
+			display: inline-block;
+		}
+			#menu .social .ig { background-image: url(../img/icon_ig.png); }
+			#menu .social .fb { background-image: url(../img/icon_fb.png); }
+
+
+footer {
+	margin-top: -200px;
+	padding: 60px 4% 20px;
+}
+	footer h5 {
+		font-size: 2em;
+		margin-top: 0;
+	}
+
+	footer .btn {
+		font-size: 1.3em;
+		padding: 15px 20px;
+	}
+	footer > a,
+	footer div a,
+	footer p {
+		font-size: 1.1em;
+	}
+
+#cover {
+	padding: 30px 0 100px;
+	display: flex;
+	flex-direction: column-reverse;
+}
+	#cover:after {
+		content: url(../img/arrowD.png);
+		position: absolute;
+		left: 50%;
+		bottom: 33px;
+		margin-left: -13px;
+	}
+
+	#cover div {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+		#cover h1 {
+			font-size: 3em;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+			h1 br {
+				display: none;
+			}
+
+		#cover img {
+			max-width:  100vw;
+		}
+
+		#cover .btnForm {
+			display: none;
+		}
+
+
+#roteiros {
+	padding: 60px 4% 150px;
+}
+	#roteiros br {
+		display: none;
+	}
+	#roteiros div {
+		height: 300px;
+	}
+
+	#roteiros span {
+		font-size: 10em;
+	}
+		#roteiros b {
+			font-size: 45px;
+			margin: -25px 0 0 -70px;
+		}
+
+
+	#roteiros p br {
+		display: none;
+	}
+
+
+
+
+#prazer {
+	top: -130px;
+}
+	#prazer .LR > div img {
+	    max-width: 60%;
+	    margin-left: 0;
+	    z-index: 0;
+	}
+		#prazer .LR .mobile {
+			max-width: 70vw;
+		    margin: -40px 0 0 auto;
+		    float: right;
+		    position: relative;
+		    z-index: 3;
+		}
+
+	#prazer .LR .txt {
+		width: 100%;
+		padding: 60px 0 0 0;
+	}
+
+
+#viagens {
+	padding: 60px 0;
+	top: -130px;
+}
+	#viagens .LR .txt {
+		margin: 60px 4%;
+	}
+
+	#viagens h3 {
+		font-size: 2.4em;
+		text-indent: 0;
+    	margin: 0 0 20px 0;
+	}
+	#viagens p,
+	#viagens .btn {
+		margin-left: 0;
+	}
+
+	.txtRight {
+		text-align: right;
+	}
+
+
+
+#destino {
+	top: -200px;
+}
+
+
+#parceiros {
+    top: -200px;
+}
+
+.slick {
+	margin-bottom: 50px;
+    max-width: 80%;
+    margin: auto;
+}
+	.slick img{
+		max-width: 80%;
+	}
+
+	.slick-arrow:before {
+		width: 30px;
+		display: block;
+	}
+
+	.slick-prev {
+	}
+	.slick-next {
+	}
+
+
+
+#coverSobre {
+    margin: 50px 0 200px !important;
+    padding: 60px 8% 100px;
+}
+#coverSobre:before {
+	opacity: 0.6;
+}
+	#coverSobre p {
+		max-width: 100vw;
+		text-align: left;
+	}
+	#coverSobre .btnForm {
+	    bottom: 20px;
+	}
+
+
+.pgViagens {}
+	.pgViagens footer {
+		margin-top: 0;
+	}
+
+	.pgViagens #cover { 
+		flex-direction: column;
+	}
+
+		.pgViagens #cover:after {
+			content: '';
+		}
+
+		.pgViagens #cover div {
+			padding: 60px 4% 0;
+		}
+			.pgViagens h2 {
+				font-size: 2.7em;
+				text-align: center;
+			}
+			.pgViagens p {
+				text-align: center;
+				max-width: 100%;
+			}
+
+		.pgViagens #cover img {
+			max-width: 100vw;
+		}
+}
+
+@media screen and (min-width: 1500px) {
+	body {
+		font-size: 110%;
+	}
+	
+	header, footer,
+	section {
+		padding-left: 12% !important;
+		padding-right: 12% !important;
+	}
+	nav .submenu {
+		padding-left: 12% !important;
+	}
+
+	#cover div {
+		width:  76%
+	}
+		#cover h1 {
+			font-size: 11em;
+		}
+
+	.pgViagens .btnForm {
+		right: 11%;
+	}
+	.pgViagens #cover img {
+		max-width: 75%;
+	}
+	.pgViagens p {
+		max-width: 20%;
+	}
+}
+
+
+
+
+
